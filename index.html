@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Jogo Matemático</title>
@@ -7,16 +7,27 @@
 </head>
 <body>
 
-<h1>Jogo Matemático</h1>
+<div id="game">
 
-<canvas id="jogo" width="400" height="600"></canvas>
+  <!-- FUNDO -->
+  <img id="mapa" src="mapa.png">
 
-<div id="perguntaBox">
-  <p id="pergunta"></p>
-  <div id="respostas"></div>
+  <!-- PERSONAGEM -->
+  <img id="player" src="player.png">
+
+  <!-- PERGUNTA -->
+  <div id="pergunta">Carregando...</div>
+
+  <!-- ALTERNATIVAS -->
+  <div id="opcoes">
+    <button onclick="responder(0)"></button>
+    <button onclick="responder(1)"></button>
+    <button onclick="responder(2)"></button>
+    <button onclick="responder(3)"></button>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-<h1>TESTE FUNCIONANDO</h1>
