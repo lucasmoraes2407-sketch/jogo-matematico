@@ -1,92 +1,49 @@
-const canvas = document.getElementById("jogo");
-const ctx = canvas.getContext("2d");
-
-// PERSONAGEM
-let player = {
-  x: 180,
-  y: 500,
-  size: 30
-};
-
-// CONTROLES
-let keys = {};
-
-document.addEventListener("keydown", (e) => {
-  keys[e.key] = true;
-});
-
-document.addEventListener("keyup", (e) => {
-  keys[e.key] = false;
-});
-
-// NÍVEL
 let nivel = 0;
 
-// PERGUNTAS
-const perguntas = [
-  { p: "2 + 2 = ?", r: ["3", "4", "5", "6"], c: 1 },
-  { p: "5 x 2 = ?", r: ["10", "7", "8", "9"], c: 0 },
-  { p: "10 - 3 = ?", r: ["5", "6", "7", "8"], c: 2 },
+let perguntas = [
+  { p: "2 + 2", r: ["3", "4", "5", "6"], c: 1 },
+  { p: "5 x 2", r: ["10", "8", "6", "12"], c: 0 },
+  { p: "10 - 3", r: ["6", "7", "8", "9"], c: 1 },
+  { p: "9 ÷ 3", r: ["2", "3", "4", "5"], c: 1 },
+  { p: "6 + 7", r: ["12", "13", "14", "15"], c: 1 },
+  { p: "8 x 2", r: ["14", "15", "16", "18"], c: 2 },
+  { p: "20 - 5", r: ["10", "12", "15", "18"], c: 2 },
+  { p: "4 x 4", r: ["12", "14", "16", "18"], c: 2 },
+  { p: "18 ÷ 2", r: ["8", "9", "10", "11"], c: 1 },
+  { p: "7 + 8", r: ["13", "14", "15", "16"], c: 2 }
 ];
 
-// MOSTRAR PERGUNTA
-function mostrarPergunta() {
-  let p = perguntas[nivel];
+function carregarPergunta() {
+  let q = perguntas[nivel];
 
-  document.getElementById("pergunta").innerText = p.p;
-  let respostasDiv = document.getElementById("respostas");
-  respostasDiv.innerHTML = "";
+  document.getElementById("pergunta").innerText = q.p;
 
-  p.r.forEach((resposta, i) => {
-    let btn = document.createElement("button");
-    btn.innerText = resposta;
-
-    btn.onclick = () => {
-      if (i === p.c) {
-        alert("Acertou!");
-        nivel++;
-
-        // sobe no mapa
-        player.y -= 50;
-
-        if (nivel < perguntas.length) {
-          mostrarPergunta();
-        } else {
-          alert("Você venceu!");
-        }
-
-      } else {
-        alert("Errou!");
-      }
-    };
-
-    respostasDiv.appendChild(btn);
-  });
+  let botoes = document.querySelectorAll("button");
+  for (let i = 0; i < 4; i++) {
+    botoes[i].innerText = q.r[i];
+  }
 }
 
-// MOVIMENTO
-function atualizar() {
-  if (keys["ArrowLeft"] || keys["a"]) player.x -= 3;
-  if (keys["ArrowRight"] || keys["d"]) player.x += 3;
-  if (keys["ArrowUp"] || keys["w"]) player.y -= 3;
-  if (keys["ArrowDown"] || keys["s"]) player.y += 3;
+function responder(i) {
+  if (i === perguntas[nivel].c) {
+    nivel++;
+    moverPlayer();
+    
+    if (nivel < perguntas.length) {
+      carregarPergunta();
+    } else {
+      alert("Você venceu! 🎉");
+    }
+  } else {
+    alert("Errou!");
+  }
 }
 
-// DESENHAR
-function desenhar() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function moverPlayer() {
+  let player = document.getElementById("player");
 
-  ctx.fillStyle = "red";
-  ctx.fillRect(player.x, player.y, player.size, player.size);
+  let altura = 20 + (nivel * 50);
+  player.style.bottom = altura + "px";
 }
 
-// LOOP DO JOGO
-function loop() {
-  atualizar();
-  desenhar();
-  requestAnimationFrame(loop);
-}
-
-// INICIAR
-mostrarPergunta();
-loop();
+carregarPergunta();
