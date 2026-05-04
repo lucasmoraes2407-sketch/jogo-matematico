@@ -1,74 +1,83 @@
 let nivel = 0;
 
-// POSIÇÕES EXATAS DOS 10 BLOQUINHOS
-// (o personagem vai pisando em cada um)
+// POSIÇÕES DOS 10 BLOQUINHOS
 const blocos = [
-  { x: 160, y: 40 },   // fase 1
-  { x: 210, y: 90 },   // fase 2
-  { x: 145, y: 150 },  // fase 3
-  { x: 220, y: 210 },  // fase 4
-  { x: 150, y: 280 },  // fase 5
-  { x: 230, y: 350 },  // fase 6
-  { x: 160, y: 420 },  // fase 7
-  { x: 220, y: 490 },  // fase 8
-  { x: 170, y: 560 },  // fase 9
-  { x: 200, y: 620 }   // fase 10
+  { x:160, y:40 },
+  { x:210, y:90 },
+  { x:145, y:150 },
+  { x:220, y:210 },
+  { x:150, y:280 },
+  { x:230, y:350 },
+  { x:160, y:420 },
+  { x:220, y:490 },
+  { x:170, y:560 },
+  { x:200, y:620 }
 ];
 
-// 10 PERGUNTAS
+// PERGUNTAS
 const perguntas = [
-  { p: "2 + 2", r: ["3","4","5","6"], c: 1 },
-  { p: "5 + 3", r: ["6","7","8","9"], c: 2 },
-  { p: "10 - 4", r: ["4","5","6","7"], c: 2 },
-  { p: "3 x 3", r: ["6","8","9","12"], c: 2 },
-  { p: "12 ÷ 3", r: ["3","4","5","6"], c: 1 },
-  { p: "7 + 5", r: ["10","11","12","13"], c: 2 },
-  { p: "8 x 2", r: ["14","16","18","20"], c: 1 },
-  { p: "15 - 5", r: ["8","9","10","11"], c: 2 },
-  { p: "9 + 6", r: ["13","14","15","16"], c: 2 },
-  { p: "20 ÷ 4", r: ["4","5","6","7"], c: 1 }
+  { p:"2+2", r:["3","4","5","6"], c:1 },
+  { p:"5+3", r:["6","7","8","9"], c:2 },
+  { p:"10-4", r:["4","5","6","7"], c:2 },
+  { p:"3x3", r:["6","8","9","12"], c:2 },
+  { p:"12÷3", r:["3","4","5","6"], c:1 },
+  { p:"6+7", r:["12","13","14","15"], c:1 },
+  { p:"8x2", r:["14","16","18","20"], c:1 },
+  { p:"15-5", r:["8","9","10","11"], c:2 },
+  { p:"9+6", r:["13","14","15","16"], c:2 },
+  { p:"20÷4", r:["4","5","6","7"], c:1 }
 ];
 
-// PERSONAGEM COMEÇA NO PRIMEIRO BLOCO
-function posicionarPlayer() {
-  const player = document.getElementById("player");
+// POSICIONA PERSONAGEM + BALÃO
+function posicionar(){
 
-  player.style.left = blocos[nivel].x + "px";
-  player.style.bottom = blocos[nivel].y + "px";
+  const player = document.getElementById("player");
+  const balao = document.getElementById("balao");
+
+  let x = blocos[nivel].x;
+  let y = blocos[nivel].y;
+
+  // personagem
+  player.style.left = x + "px";
+  player.style.bottom = y + "px";
+
+  // balão acompanha
+  balao.style.left = (x - 30) + "px";
+  balao.style.bottom = (y + 60) + "px";
 }
 
 // MOSTRAR PERGUNTA
-function carregarPergunta() {
-  const q = perguntas[nivel];
+function carregarPergunta(){
+
+  let q = perguntas[nivel];
 
   document.getElementById("pergunta").innerText = q.p;
 
-  const botoes = document.querySelectorAll("button");
+  let botoes = document.querySelectorAll("button");
 
-  for (let i = 0; i < 4; i++) {
+  for(let i = 0; i < 4; i++){
     botoes[i].innerText = q.r[i];
   }
 }
 
 // RESPONDER
-function responder(i) {
+function responder(i){
 
-  if (i === perguntas[nivel].c) {
+  if(i === perguntas[nivel].c){
 
-    if (nivel < 9) {
+    if(nivel < 9){
       nivel++;
-      posicionarPlayer();
+      posicionar();
       carregarPergunta();
-    } else {
-      alert("Você completou as 10 fases! 🎉");
+    }else{
+      alert("Você venceu! 🎉");
     }
 
-  } else {
+  }else{
     alert("Errou!");
   }
-
 }
 
 // INICIAR
-posicionarPlayer();
+posicionar();
 carregarPergunta();
