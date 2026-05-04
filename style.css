@@ -89,8 +89,16 @@ body{
 }
 
 button{
-  width:55px;
-  height:55px;
+  width:70px;
+  height:70px;
+  border:none;
+  background:url('botao.png');
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center;
   font-size:22px;
+  font-weight:bold;
+  color:white;
   cursor:pointer;
 }
+ 
