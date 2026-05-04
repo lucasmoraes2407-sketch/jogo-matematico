@@ -1,49 +1,66 @@
-let nivel = 0;
-
-let perguntas = [
-  { p: "2 + 2", r: ["3", "4", "5", "6"], c: 1 },
-  { p: "5 x 2", r: ["10", "8", "6", "12"], c: 0 },
-  { p: "10 - 3", r: ["6", "7", "8", "9"], c: 1 },
-  { p: "9 ÷ 3", r: ["2", "3", "4", "5"], c: 1 },
-  { p: "6 + 7", r: ["12", "13", "14", "15"], c: 1 },
-  { p: "8 x 2", r: ["14", "15", "16", "18"], c: 2 },
-  { p: "20 - 5", r: ["10", "12", "15", "18"], c: 2 },
-  { p: "4 x 4", r: ["12", "14", "16", "18"], c: 2 },
-  { p: "18 ÷ 2", r: ["8", "9", "10", "11"], c: 1 },
-  { p: "7 + 8", r: ["13", "14", "15", "16"], c: 2 }
-];
-
-function carregarPergunta() {
-  let q = perguntas[nivel];
-
-  document.getElementById("pergunta").innerText = q.p;
-
-  let botoes = document.querySelectorAll("button");
-  for (let i = 0; i < 4; i++) {
-    botoes[i].innerText = q.r[i];
-  }
+body{
+  margin:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
 }
 
-function responder(i) {
-  if (i === perguntas[nivel].c) {
-    nivel++;
-    moverPlayer();
-    
-    if (nivel < perguntas.length) {
-      carregarPergunta();
-    } else {
-      alert("Você venceu! 🎉");
-    }
-  } else {
-    alert("Errou!");
-  }
+#game{
+  position:relative;
+  width:400px;
+  height:700px;
+  overflow:hidden;
+  border:2px solid white;
 }
 
-function moverPlayer() {
-  let player = document.getElementById("player");
-
-  let altura = 20 + (nivel * 50);
-  player.style.bottom = altura + "px";
+/* FUNDO */
+#mapa{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
 }
 
-carregarPergunta();
+/* PERSONAGEM */
+#player{
+  position:absolute;
+  width:60px;
+  left:170px;
+  bottom:40px;
+  z-index:10;
+}
+
+/* PERGUNTA */
+#pergunta{
+  position:absolute;
+  top:20px;
+  width:100%;
+  text-align:center;
+  color:white;
+  font-size:32px;
+  font-weight:bold;
+  z-index:20;
+}
+
+/* BOTÕES */
+#opcoes{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  z-index:20;
+}
+
+button{
+  width:50px;
+  height:50px;
+  font-size:22px;
+  cursor:pointer;
+}
