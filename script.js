@@ -1,6 +1,6 @@
 let nivel = 0;
 
-// POSIÇÕES DOS 10 BLOQUINHOS
+// POSIÇÕES DOS BLOQUINHOS
 const blocos = [
   { x:160, y:40 },
   { x:210, y:90 },
@@ -28,7 +28,7 @@ const perguntas = [
   { p:"20÷4", r:["4","5","6","7"], c:1 }
 ];
 
-// POSICIONA PERSONAGEM + BALÃO
+// POSICIONAR PERSONAGEM + BALÃO
 function posicionar(){
 
   const player = document.getElementById("player");
@@ -37,23 +37,21 @@ function posicionar(){
   let x = blocos[nivel].x;
   let y = blocos[nivel].y;
 
-  // personagem
   player.style.left = x + "px";
   player.style.bottom = y + "px";
 
-  // balão acompanha
   balao.style.left = (x - 30) + "px";
   balao.style.bottom = (y + 60) + "px";
 }
 
-// MOSTRAR PERGUNTA
+// CARREGAR PERGUNTA
 function carregarPergunta(){
 
   let q = perguntas[nivel];
 
   document.getElementById("pergunta").innerText = q.p;
 
-  let botoes = document.querySelectorAll("button");
+  let botoes = document.querySelectorAll("#opcoes button");
 
   for(let i = 0; i < 4; i++){
     botoes[i].innerText = q.r[i];
@@ -76,11 +74,10 @@ function responder(i){
   }else{
     alert("Errou!");
   }
+
 }
 
-// INICIAR
-posicionar();
-carregarPergunta();
+// TELA INICIAL
 function iniciarJogo(){
 
   document.getElementById("telaInicial").style.display = "none";
@@ -89,5 +86,17 @@ function iniciarJogo(){
 
   posicionar();
   carregarPergunta();
+
+}
+
+// TUTORIAL
+function mostrarTutorial(){
+
+  alert(
+    "COMO JOGAR 🎮\n\n" +
+    "Resolva as contas.\n\n" +
+    "Cada resposta certa sobe um bloco.\n\n" +
+    "Complete as 10 fases para vencer! 🏆"
+  );
 
 }
