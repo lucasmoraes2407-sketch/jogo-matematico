@@ -1,132 +1,120 @@
 body{
   margin:0;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-}
-
-/* ÁREA DO JOGO */
-#game{
-  position:relative;
-  width:400px;
-  height:700px;
   overflow:hidden;
-  display:none;
+  background:black;
 }
 
 /* TELA INICIAL */
+
 #telaInicial{
   position:absolute;
-  width:400px;
-  height:700px;
-  overflow:hidden;
+  width:100%;
+  height:100%;
   z-index:100;
 }
 
-/* IMAGEM INICIAL */
 #fundoInicio{
-  position:absolute;
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* BOTÕES DA TELA INICIAL */
 #btnJogar{
   position:absolute;
-  width:180px;
-  height:60px;
-  left:110px;
-  top:420px;
-  background:transparent;
-  border:none;
-  cursor:pointer;
-  z-index:101;
-}
-
-#btnTutorial{
-  position:absolute;
-  width:180px;
-  height:60px;
-  left:110px;
-  top:500px;
-  background:transparent;
-  border:none;
-  cursor:pointer;
-  z-index:101;
-}
-
-/* MAPA */
-#mapa{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* PERSONAGEM */
-#player{
-  position:absolute;
-  width:60px;
-  z-index:10;
-}
-
-/* BALÃO */
-#balao{
-  position:absolute;
-  width:120px;
-  z-index:20;
-}
-
-#balao img{
-  width:100%;
-}
-
-/* TEXTO DA PERGUNTA */
-#pergunta{
-  position:absolute;
-  top:38%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  width:70%;
-  text-align:center;
-  font-size:16px;
-  font-weight:bold;
-  color:black;
-}
-
-/* ALTERNATIVAS 2x2 */
-#opcoes{
-  position:absolute;
-  bottom:20px;
+  bottom:120px;
   left:50%;
   transform:translateX(-50%);
 
-  width:170px;
-
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-
-  z-index:20;
-}
-
-/* BOTÕES */
-#opcoes button{
-  width:70px;
+  width:200px;
   height:70px;
 
-  background-image:url('botao.png');
+  border:none;
+  border-radius:15px;
+
+  font-size:28px;
+  font-weight:bold;
+
+  background:#ff9800;
+  color:white;
+
+  cursor:pointer;
+}
+
+/* JOGO */
+
+#game{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  display:none;
+}
+
+#mapa{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+/* PERSONAGEM */
+
+#player{
+  position:absolute;
+  width:60px;
+  z-index:5;
+}
+
+/* BALÃO */
+
+#balaoContainer{
+  position:absolute;
+  top:20px;
+  left:20px;
+  z-index:10;
+}
+
+#balaoImg{
+  width:140px;
+}
+
+#pergunta{
+  position:absolute;
+  top:20px;
+  left:20px;
+  width:90px;
+
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* ALTERNATIVAS */
+
+#opcoes{
+  position:absolute;
+  top:130px;
+  left:25px;
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  z-index:10;
+}
+
+#opcoes button{
+  width:90px;
+  height:55px;
+
+  border:none;
+  border-radius:10px;
+
+  font-size:22px;
+  font-weight:bold;
+
+  background-image:url("botao.png");
   background-size:100% 100%;
   background-repeat:no-repeat;
 
-  border:none;
-
-  font-size:20px;
-  font-weight:bold;
   color:white;
-
   cursor:pointer;
 }
