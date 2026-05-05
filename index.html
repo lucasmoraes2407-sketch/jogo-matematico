@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo Matemático</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo Matemático</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- TELA INICIAL -->
-    <div id="telaInicial">
+  <!-- TELA INICIAL -->
+  <div id="telaInicial">
 
-        <img id="capa" src="inicio.png">
+    <img id="capa" src="inicio.png">
 
-        <button id="btnJogar" onclick="iniciarJogo()">
-            JOGAR
-        </button>
+    <button id="btnJogar" onclick="iniciarJogo()">
+      JOGAR
+    </button>
+
+  </div>
+
+
+  <!-- TELA DO JOGO -->
+  <div id="game" style="display:none;">
+
+    <!-- MAPA -->
+    <img id="mapa" src="fundo.png">
+
+    <!-- PERSONAGEM -->
+    <img id="player" src="player.png">
+
+    <!-- BALÃO -->
+    <img id="balao" src="balao.png">
+
+    <!-- TEXTO -->
+    <div id="pergunta">2 + 2</div>
+
+    <!-- ALTERNATIVAS -->
+    <div id="opcoes">
+
+      <button onclick="responder(3)">3</button>
+      <button onclick="responder(4)">4</button>
+      <button onclick="responder(5)">5</button>
+      <button onclick="responder(6)">6</button>
 
     </div>
 
+  </div>
 
-    <!-- JOGO -->
-    <div id="game">
-
-        <!-- FUNDO -->
-        <img id="mapa" src="fundo.png">
-
-        <!-- PERSONAGEM -->
-        <img id="player" src="player.png">
-
-        <!-- BALÃO -->
-        <div id="balaoContainer">
-            <img id="balao" src="balao.png">
-            <div id="pergunta">2 + 2</div>
-        </div>
-
-        <!-- OPÇÕES -->
-        <div id="opcoes">
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-        </div>
-
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
