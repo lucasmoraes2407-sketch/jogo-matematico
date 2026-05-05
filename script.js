@@ -28,7 +28,7 @@ const perguntas = [
   { p:"20÷4", r:["4","5","6","7"], c:1 }
 ];
 
-// POSICIONAR PERSONAGEM + BALÃO
+// PERSONAGEM + BALÃO
 function posicionar(){
 
   const player = document.getElementById("player");
@@ -77,12 +77,14 @@ function responder(i){
 
 }
 
-// TELA INICIAL
+// COMEÇAR JOGO + MÚSICA
 function iniciarJogo(){
 
   document.getElementById("telaInicial").style.display = "none";
 
   document.getElementById("game").style.display = "block";
+
+  document.getElementById("musicaFundo").play();
 
   posicionar();
   carregarPergunta();
@@ -94,7 +96,7 @@ function mostrarTutorial(){
 
   alert(
     "COMO JOGAR 🎮\n\n" +
-    "Resolva as contas.\n\n" +
+    "Resolva as contas matemáticas.\n\n" +
     "Cada resposta certa sobe um bloco.\n\n" +
     "Complete as 10 fases para vencer! 🏆"
   );
