@@ -1,6 +1,5 @@
 body{
     margin:0;
-    padding:0;
     background:black;
     display:flex;
     justify-content:center;
@@ -9,76 +8,91 @@ body{
     overflow:hidden;
 }
 
-#game{
+/* TELA INICIAL */
+#telaInicial{
     position:relative;
-    width:430px;
-    height:760px;
-    overflow:hidden;
-    border:3px solid #333;
+    width:390px;
+    height:700px;
 }
 
-/* MAPA */
+#imgInicio{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+#btnJogar{
+    position:absolute;
+    bottom:170px;
+    left:50%;
+    transform:translateX(-50%);
+    width:180px;
+    height:55px;
+    font-size:24px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* JOGO */
+#game{
+    display:none;
+    position:relative;
+    width:390px;
+    height:700px;
+    overflow:hidden;
+}
+
 #mapa{
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
-/* PERSONAGEM */
 #player{
     position:absolute;
     width:45px;
-    z-index:5;
-    transition:0.5s;
+    left:35px;
+    bottom:10px;
 }
 
 /* BALÃO */
 #balao{
     position:absolute;
+    left:10px;
+    top:10px;
     width:120px;
-    z-index:6;
-    transition:0.5s;
+    height:100px;
 }
 
-/* PERGUNTA */
+#balao img{
+    width:100%;
+}
+
 #pergunta{
     position:absolute;
-    width:70px;
-
-    font-size:22px;
-    font-weight:bold;
-    color:black;
-
+    top:25px;
+    left:0;
+    width:100%;
     text-align:center;
-
-    z-index:7;
-    pointer-events:none;
+    font-size:28px;
+    font-weight:bold;
 }
 
 /* ALTERNATIVAS */
 #opcoes{
     position:absolute;
-    right:8px;
-    bottom:90px;
+    right:10px;
+    bottom:80px;
 
     display:flex;
     flex-direction:column;
-    gap:8px;
-
-    z-index:10;
+    gap:10px;
 }
 
 #opcoes button{
     width:70px;
     height:70px;
-
-    border:none;
-    color:white;
-    font-size:28px;
+    font-size:30px;
     font-weight:bold;
     cursor:pointer;
-
-    background-image:url("botao.png");
-    background-size:cover;
-    background-position:center;
 }
