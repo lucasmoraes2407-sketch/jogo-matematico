@@ -1,29 +1,23 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Jogo Matemático</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!-- MÚSICA -->
-  <audio id="musica" autoplay loop>
-    <source src="musica.mp3" type="audio/mp3">
-  </audio>
 
   <!-- TELA INICIAL -->
   <div id="telaInicial">
 
-    <img id="fundoInicio" src="inicio.png">
+    <img id="imgInicio" src="inicio.png">
 
     <button id="btnJogar" onclick="iniciarJogo()">
       JOGAR
     </button>
 
   </div>
+
 
   <!-- JOGO -->
   <div id="game">
@@ -35,17 +29,17 @@
     <img id="player" src="player.png">
 
     <!-- BALÃO -->
-    <div id="balaoContainer">
-      <img id="balaoImg" src="balao.png">
-      <div id="pergunta">Carregando...</div>
+    <div id="balao">
+      <img src="balao.png">
+      <div id="pergunta">2 + 2</div>
     </div>
 
     <!-- ALTERNATIVAS -->
     <div id="opcoes">
-      <button onclick="responder(0)">0</button>
-      <button onclick="responder(1)">0</button>
-      <button onclick="responder(2)">0</button>
-      <button onclick="responder(3)">0</button>
+      <button onclick="responder(0)">3</button>
+      <button onclick="responder(1)">4</button>
+      <button onclick="responder(2)">5</button>
+      <button onclick="responder(3)">6</button>
     </div>
 
   </div>
