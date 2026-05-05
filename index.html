@@ -7,22 +7,29 @@
 </head>
 <body>
 
-<div id="game">
+<!-- TELA INICIAL -->
+<div id="telaInicial">
 
-  <!-- FUNDO -->
-  <img id="mapa" src="fundo.png">
+  <img id="fundoInicio" src="inicio.png">
 
-  <!-- PERSONAGEM -->
-  <img id="player" src="player.png">
+  <button id="btnJogar" onclick="iniciarJogo()">
+    JOGAR
+  </button>
 
-  <!-- PERGUNTA -->
-  <!-- BALÃO DA PERGUNTA -->
-<div id="balao">
-  <img src="balao.png">
-  <div id="pergunta">Carregando...</div>
 </div>
 
-  <!-- ALTERNATIVAS -->
+<!-- TELA DO JOGO -->
+<div id="game">
+
+  <img id="mapa" src="fundo.png">
+
+  <img id="player" src="player.png">
+
+  <div id="balao">
+    <img src="balao.png">
+    <div id="pergunta">Carregando...</div>
+  </div>
+
   <div id="opcoes">
     <button onclick="responder(0)"></button>
     <button onclick="responder(1)"></button>
@@ -33,5 +40,6 @@
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
