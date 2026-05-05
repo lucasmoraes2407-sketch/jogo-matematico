@@ -7,6 +7,7 @@ body{
   min-height:100vh;
 }
 
+/* ÁREA DO JOGO */
 #game{
   position:relative;
   width:400px;
@@ -24,6 +25,7 @@ body{
   z-index:100;
 }
 
+/* IMAGEM DA TELA INICIAL */
 #fundoInicio{
   position:absolute;
   width:100%;
@@ -31,27 +33,34 @@ body{
   object-fit:cover;
 }
 
-/* BOTÕES DA TELA INICIAL */
-#menuInicial{
+/* BOTÃO JOGAR (INVISÍVEL) */
+#btnJogar{
   position:absolute;
-  bottom:80px;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:15px;
+  width:180px;
+  height:60px;
+
+  left:110px;
+  top:500px;
+
+  background:transparent;
+  border:none;
+  cursor:pointer;
   z-index:101;
 }
 
-#btnJogar,
+/* BOTÃO COMO JOGAR (INVISÍVEL) */
 #btnTutorial{
-  width:220px;
+  position:absolute;
+  width:180px;
   height:60px;
-  font-size:22px;
-  font-weight:bold;
+
+  left:110px;
+  top:580px;
+
+  background:transparent;
   border:none;
-  border-radius:20px;
   cursor:pointer;
+  z-index:101;
 }
 
 /* MAPA */
@@ -60,6 +69,7 @@ body{
   width:100%;
   height:100%;
   object-fit:cover;
+  z-index:1;
 }
 
 /* PERSONAGEM */
@@ -80,6 +90,7 @@ body{
   width:100%;
 }
 
+/* TEXTO DA PERGUNTA */
 #pergunta{
   position:absolute;
   top:38%;
@@ -103,10 +114,12 @@ body{
   z-index:20;
 }
 
-button{
+/* BOTÕES DAS RESPOSTAS */
+#opcoes button{
   width:70px;
   height:70px;
   font-size:20px;
   font-weight:bold;
+  border:none;
   cursor:pointer;
 }
