@@ -1,8 +1,7 @@
 function iniciarJogo(){
-    document.getElementById("telaInicial").style.display = "none";
-    document.getElementById("game").style.display = "block";
-}
 
-function responder(opcao){
-    alert("Clique registrado!");
+    document.getElementById("telaInicial").style.display = "none";
+
+    document.getElementById("game").style.display = "block";
+
 }
