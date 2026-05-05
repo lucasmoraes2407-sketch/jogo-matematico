@@ -1,109 +1,84 @@
-/* CONFIGURAÇÃO GERAL */
 body{
-  margin:0;
-  padding:0;
-  overflow:hidden;
-  background:black;
-  font-family:Arial, sans-serif;
+    margin:0;
+    padding:0;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
 }
 
-/* JOGO */
 #game{
-  position:relative;
-  width:100vw;
-  height:100vh;
-  overflow:hidden;
+    position:relative;
+    width:430px;
+    height:760px;
+    overflow:hidden;
+    border:3px solid #333;
 }
 
-/* TELA INICIAL */
-#telaInicial{
-  position:absolute;
-  width:100%;
-  height:100%;
-  z-index:20;
-}
-
-/* IMAGEM DA TELA INICIAL */
-#fundoInicio{
-  width:100%;
-  height:100%;
-  object-fit:contain; /* mantém proporção */
-  background:black;
-}
-
-/* BOTÃO JOGAR */
-#btnJogar{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:12%;
-  
-  background:transparent;
-  border:none;
-  cursor:pointer;
-}
-
-#btnJogar img{
-  width:220px;
-  height:auto;
-}
-
-/* MAPA DO JOGO */
+/* MAPA */
 #mapa{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:contain; /* corrige distorção */
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 /* PERSONAGEM */
 #player{
-  position:absolute;
-  width:60px;
-  height:auto;
-  z-index:5;
+    position:absolute;
+    width:45px;
+    z-index:5;
+    transition:0.5s;
 }
 
 /* BALÃO */
 #balao{
-  position:absolute;
-  width:120px;
-  height:auto;
-  z-index:6;
+    position:absolute;
+    width:120px;
+    z-index:6;
+    transition:0.5s;
 }
 
-/* TEXTO DA PERGUNTA */
+/* PERGUNTA */
 #pergunta{
-  position:absolute;
-  color:black;
-  font-weight:bold;
-  font-size:28px;
-  z-index:7;
+    position:absolute;
+    width:70px;
+
+    font-size:22px;
+    font-weight:bold;
+    color:black;
+
+    text-align:center;
+
+    z-index:7;
+    pointer-events:none;
 }
 
 /* ALTERNATIVAS */
 #opcoes{
-  position:absolute;
-  right:20px;
-  bottom:100px;
+    position:absolute;
+    right:8px;
+    bottom:90px;
 
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:8;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
+    z-index:10;
 }
 
 #opcoes button{
-  width:90px;
-  height:90px;
+    width:70px;
+    height:70px;
 
-  background-image:url("botao.png");
-  background-size:cover;
-  background-position:center;
+    border:none;
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
 
-  border:none;
-  color:white;
-  font-size:30px;
-  font-weight:bold;
-  cursor:pointer;
+    background-image:url("botao.png");
+    background-size:cover;
+    background-position:center;
 }
