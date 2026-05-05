@@ -33,14 +33,14 @@ body{
   object-fit:cover;
 }
 
-/* BOTÃO JOGAR (INVISÍVEL) */
+/* BOTÃO JOGAR (MAIS PARA CIMA) */
 #btnJogar{
   position:absolute;
   width:180px;
   height:60px;
 
   left:110px;
-  top:500px;
+  top:420px;
 
   background:transparent;
   border:none;
@@ -48,14 +48,14 @@ body{
   z-index:101;
 }
 
-/* BOTÃO COMO JOGAR (INVISÍVEL) */
+/* BOTÃO COMO JOGAR (MAIS PARA CIMA) */
 #btnTutorial{
   position:absolute;
   width:180px;
   height:60px;
 
   left:110px;
-  top:580px;
+  top:500px;
 
   background:transparent;
   border:none;
