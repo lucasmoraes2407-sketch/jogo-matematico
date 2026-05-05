@@ -1,71 +1,67 @@
 let faseAtual = 0;
 
-// POSIÇÕES DOS 10 BLOQUINHOS
-// x = esquerda
-// y = topo
-const posicoes = [
-
-    {x:35,  y:640},
-    {x:70,  y:610},
-    {x:105, y:565},
-    {x:135, y:520},
-    {x:165, y:470},
-    {x:195, y:420},
-    {x:220, y:365},
-    {x:245, y:300},
-    {x:270, y:235},
-    {x:290, y:170}
-
+const fases = [
+    {x:25, y:675},
+    {x:55, y:630},
+    {x:85, y:585},
+    {x:115, y:540},
+    {x:145, y:495},
+    {x:175, y:445},
+    {x:205, y:390},
+    {x:235, y:330},
+    {x:265, y:270},
+    {x:295, y:205}
 ];
 
-function iniciarJogo(){
-
-    document.getElementById("telaInicial").style.display = "none";
-    document.getElementById("game").style.display = "block";
-
-    moverPersonagem();
-}
-
-
-// COLOCA O BONECO NO BLOCO CERTO
-function moverPersonagem(){
+function atualizarPosicao(){
 
     const player = document.getElementById("player");
+    const balao = document.getElementById("balao");
+    const pergunta = document.getElementById("pergunta");
 
-    player.style.left = posicoes[faseAtual].x + "px";
-    player.style.top = posicoes[faseAtual].y + "px";
+    let x = fases[faseAtual].x;
+    let y = fases[faseAtual].y;
+
+    // PERSONAGEM
+    player.style.left = x + "px";
+    player.style.top = y + "px";
+
+    // BALÃO ACOMPANHANDO O PERSONAGEM
+    balao.style.left = (x - 10) + "px";
+    balao.style.top = (y - 95) + "px";
+
+    // TEXTO DENTRO DO BALÃO
+    pergunta.style.left = (x + 20) + "px";
+    pergunta.style.top = (y - 63) + "px";
 }
 
+function responder(valor){
 
-// CLIQUE NAS RESPOSTAS
-const botoes = document.querySelectorAll("#opcoes button");
+    if(valor === 4){
 
-botoes.forEach(botao => {
+        if(faseAtual < 9){
 
-    botao.onclick = function(){
-
-        const resposta = parseInt(this.innerText);
-
-        // resposta certa = 4
-        if(resposta === 4){
-
-            if(faseAtual < 9){
-
-                faseAtual++;
-                moverPersonagem();
-
-            }else{
-
-                alert("Parabéns! Você completou as 10 fases!");
-
-            }
+            faseAtual++;
+            atualizarPosicao();
 
         }else{
 
-            alert("Resposta errada!");
+            alert("Parabéns! Você concluiu as 10 fases!");
 
         }
 
+    }else{
+
+        alert("Errou! Tente novamente.");
+
     }
 
-});
+}
+
+window.onload = function(){
+
+    atualizarPosicao();
+
+    document.getElementById("pergunta").innerHTML = "2 + 2";
+
+};
