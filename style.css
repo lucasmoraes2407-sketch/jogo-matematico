@@ -25,7 +25,7 @@ body{
   z-index:100;
 }
 
-/* IMAGEM DA TELA INICIAL */
+/* IMAGEM INICIAL */
 #fundoInicio{
   position:absolute;
   width:100%;
@@ -64,7 +64,6 @@ body{
   width:100%;
   height:100%;
   object-fit:cover;
-  z-index:1;
 }
 
 /* PERSONAGEM */
@@ -98,18 +97,23 @@ body{
   color:black;
 }
 
-/* ÁREA DAS RESPOSTAS */
+/* ALTERNATIVAS 2x2 */
 #opcoes{
   position:absolute;
   bottom:20px;
-  width:100%;
-  display:flex;
-  justify-content:center;
+  left:50%;
+  transform:translateX(-50%);
+
+  width:170px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:10px;
+
   z-index:20;
 }
 
-/* BOTÕES COM IMAGEM */
+/* BOTÕES */
 #opcoes button{
   width:70px;
   height:70px;
@@ -117,7 +121,6 @@ body{
   background-image:url('botao.png');
   background-size:100% 100%;
   background-repeat:no-repeat;
-  background-position:center;
 
   border:none;
 
