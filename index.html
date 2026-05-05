@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Jogo Matemático</title>
+  <title>Aventura Matemática</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,24 +12,36 @@
 
   <img id="fundoInicio" src="inicio.png">
 
-  <button id="btnJogar" onclick="iniciarJogo()">
-    JOGAR
-  </button>
+  <div id="menuInicial">
+
+    <button id="btnJogar" onclick="iniciarJogo()">
+      JOGAR
+    </button>
+
+    <button id="btnTutorial" onclick="mostrarTutorial()">
+      COMO JOGAR
+    </button>
+
+  </div>
 
 </div>
 
 <!-- TELA DO JOGO -->
 <div id="game">
 
+  <!-- MAPA -->
   <img id="mapa" src="fundo.png">
 
+  <!-- PERSONAGEM -->
   <img id="player" src="player.png">
 
+  <!-- BALÃO -->
   <div id="balao">
     <img src="balao.png">
     <div id="pergunta">Carregando...</div>
   </div>
 
+  <!-- ALTERNATIVAS -->
   <div id="opcoes">
     <button onclick="responder(0)"></button>
     <button onclick="responder(1)"></button>
