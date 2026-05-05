@@ -1,94 +1,78 @@
-const perguntas = [
-{
-conta:"2 + 2",
-resposta:4,
-opcoes:[3,4,5,6]
-},
-{
-conta:"3 + 4",
-resposta:7,
-opcoes:[7,5,8,9]
-},
-{
-conta:"5 + 5",
-resposta:10,
-opcoes:[10,8,11,12]
-}
-];
+const player = document.getElementById("player");
+const balao = document.getElementById("balao");
+const pergunta = document.getElementById("pergunta");
+const botoes = document.querySelectorAll("#opcoes button");
 
 let fase = 0;
 
-const player = document.getElementById("player");
-
 const posicoes = [
-{x:240, y:580},
-{x:255, y:520},
-{x:270, y:460},
-{x:285, y:400},
-{x:300, y:340},
-{x:315, y:280},
-{x:330, y:220},
-{x:345, y:160},
-{x:360, y:100},
-{x:380, y:50}
+    {x:20, y:670},
+    {x:70, y:620},
+    {x:120, y:570},
+    {x:170, y:510},
+    {x:200, y:450},
+    {x:210, y:390},
+    {x:230, y:330},
+    {x:250, y:270},
+    {x:270, y:210},
+    {x:290, y:150}
 ];
 
-function iniciarJogo(){
+const perguntas = [
+    {pergunta:"2+2", opcoes:[3,4,5,6], certa:4},
+    {pergunta:"5+1", opcoes:[6,7,8,9], certa:6},
+    {pergunta:"3+4", opcoes:[5,7,8,9], certa:7},
+    {pergunta:"6+2", opcoes:[7,8,9,10], certa:8},
+    {pergunta:"9+1", opcoes:[8,9,10,11], certa:10},
+    {pergunta:"4+4", opcoes:[6,7,8,9], certa:8},
+    {pergunta:"7+2", opcoes:[8,9,10,11], certa:9},
+    {pergunta:"8+2", opcoes:[9,10,11,12], certa:10},
+    {pergunta:"5+5", opcoes:[8,9,10,11], certa:10},
+    {pergunta:"6+6", opcoes:[10,11,12,13], certa:12}
+];
 
-document.getElementById("telaInicial").style.display="none";
-document.getElementById("game").style.display="block";
+function atualizarPosicoes(){
 
-moverPlayer();
-carregarPergunta();
+    player.style.left = posicoes[fase].x + "px";
+    player.style.top = posicoes[fase].y + "px";
 
-}
+    balao.style.left = (posicoes[fase].x - 35) + "px";
+    balao.style.top = (posicoes[fase].y - 95) + "px";
 
-function moverPlayer(){
-
-player.style.left = posicoes[fase].x+"px";
-player.style.top = posicoes[fase].y+"px";
-
+    pergunta.style.left = (posicoes[fase].x - 10) + "px";
+    pergunta.style.top = (posicoes[fase].y - 65) + "px";
 }
 
 function carregarPergunta(){
 
-let p = perguntas[fase % perguntas.length];
+    let atual = perguntas[fase];
 
-document.getElementById("pergunta").innerHTML = p.conta;
+    pergunta.innerHTML = atual.pergunta;
 
-let botoes = document.querySelectorAll("#opcoes button");
+    for(let i=0; i<4; i++){
+        botoes[i].innerHTML = atual.opcoes[i];
 
-for(let i=0;i<4;i++){
+        botoes[i].onclick = function(){
+            responder(atual.opcoes[i]);
+        }
+    }
 
-botoes[i].innerHTML = p.opcoes[i];
-
+    atualizarPosicoes();
 }
 
+function responder(valor){
+
+    if(valor === perguntas[fase].certa){
+
+        fase++;
+
+        if(fase >= 10){
+            alert("Parabéns! Você venceu!");
+            fase = 0;
+        }
+
+        carregarPergunta();
+    }
 }
 
-function responder(indice){
-
-let p = perguntas[fase % perguntas.length];
-
-if(p.opcoes[indice] == p.resposta){
-
-fase++;
-
-if(fase < 10){
-
-moverPlayer();
 carregarPergunta();
-
-}else{
-
-alert("Parabéns! Você chegou na faculdade!");
-
-}
-
-}else{
-
-alert("Errou!");
-
-}
-
-}
