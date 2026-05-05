@@ -33,30 +33,25 @@ body{
   object-fit:cover;
 }
 
-/* BOTÃO JOGAR (MAIS PARA CIMA) */
+/* BOTÕES DA TELA INICIAL */
 #btnJogar{
   position:absolute;
   width:180px;
   height:60px;
-
   left:110px;
   top:420px;
-
   background:transparent;
   border:none;
   cursor:pointer;
   z-index:101;
 }
 
-/* BOTÃO COMO JOGAR (MAIS PARA CIMA) */
 #btnTutorial{
   position:absolute;
   width:180px;
   height:60px;
-
   left:110px;
   top:500px;
-
   background:transparent;
   border:none;
   cursor:pointer;
@@ -103,7 +98,7 @@ body{
   color:black;
 }
 
-/* ALTERNATIVAS */
+/* ÁREA DAS RESPOSTAS */
 #opcoes{
   position:absolute;
   bottom:20px;
@@ -114,12 +109,21 @@ body{
   z-index:20;
 }
 
-/* BOTÕES DAS RESPOSTAS */
+/* BOTÕES COM IMAGEM */
 #opcoes button{
   width:70px;
   height:70px;
+
+  background-image:url('botao.png');
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  background-position:center;
+
+  border:none;
+
   font-size:20px;
   font-weight:bold;
-  border:none;
+  color:white;
+
   cursor:pointer;
 }
